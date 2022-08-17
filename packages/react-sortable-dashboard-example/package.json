@@ -1,0 +1,46 @@
+{
+  "name": "react-sortable-dashboard-example",
+  "version": "1.0.0",
+  "description": "Example for react-sortable-dashboard library",
+  "author": "Konasov Dmitriy <d.konasov@yandex.ru>",
+  "homepage": "https://github.com/dkonasov/react-sortable-dashboard#readme",
+  "license": "MIT",
+  "main": "dist/app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkonasov/react-sortable-dashboard.git"
+  },
+  "scripts": {
+    "dev": "next dev"
+  },
+  "bugs": {
+    "url": "https://github.com/dkonasov/react-sortable-dashboard/issues"
+  },
+  "dependencies": {
+    "d3": "^7.6.1",
+    "d3-selection": "^3.0.0",
+    "effector": "^22.3.0",
+    "effector-react": "^22.1.2",
+    "next": "^12.2.2",
+    "ol": "^6.15.1",
+    "ramda": "^0.28.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-sortable-dashboard": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.0",
+    "@types/next": "^9.0.0",
+    "@types/node": "^18.0.3",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "typescript": "^4.7.4"
+  }
+}

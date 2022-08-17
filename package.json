@@ -1,0 +1,9 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "lerna": "^4.0.0",
+    "style-loader": "^3.3.1"
+  }
+}

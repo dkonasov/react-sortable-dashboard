@@ -1,0 +1,13 @@
+{
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "jsx": "react-jsx",
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "target": "es5",
+        "module": "esnext",
+        "moduleResolution": "node"
+    }
+}
