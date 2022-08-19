@@ -107,8 +107,16 @@ export const Dashboard: FC<DashboardProps> = (props) => {
 
     return result;
   }, [squareSize, children, rows, columns]);
+
   return (
-    <div style={{ position: "relative" }} ref={ref}>
+    <div
+      style={{
+        position: "relative",
+        width: squareSize > 0 ? squareSize * columns : undefined,
+        height: squareSize > 0 ? squareSize * rows : undefined,
+      }}
+      ref={ref}
+    >
       {offsets.map((element, index) => (
         <WidgetRenderer
           style={{
