@@ -18,7 +18,7 @@ export const Map: FC = () => {
           mapRef.current.dispose();
         }
 
-        if (entries[0].contentBoxSize[0].blockSize > 0) {
+        if (entries[0].contentRect.width > 0) {
           mapRef.current = new OLMap({
             target: widgetRef.current,
             layers: [
