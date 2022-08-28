@@ -61,6 +61,7 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
           type="number"
           id={`columns-${widget.id}`}
           value={widget.columns}
+          min="1"
           onChange={onColumnsChange}
         />
       </div>
@@ -71,6 +72,7 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
           type="number"
           id={`rows-${widget.id}`}
           value={widget.rows}
+          min="1"
           onChange={onRowsChange}
         />
       </div>

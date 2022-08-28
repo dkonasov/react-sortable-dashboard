@@ -25,7 +25,13 @@ export const DashboardSettings = () => {
       <h2>Dashboard settings</h2>
       <div>
         <label htmlFor="rows">Rows</label>
-        <input type="number" value={rows} id="rows" onChange={onRowsChange} />
+        <input
+          type="number"
+          value={rows}
+          id="rows"
+          onChange={onRowsChange}
+          min="1"
+        />
       </div>
 
       <div>
@@ -34,6 +40,7 @@ export const DashboardSettings = () => {
           type="number"
           value={columns}
           id="columns"
+          min="1"
           onChange={onColumnsChange}
         />
       </div>
