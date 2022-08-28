@@ -19,7 +19,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "webpack && tsc"
+    "build": "webpack && tsc",
+    "build:prod": "webpack --mode=production && tsc"
   },
   "bugs": {
     "url": "https://github.com/dkonasov/react-sortable-dashboard/issues"

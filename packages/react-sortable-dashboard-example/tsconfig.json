@@ -4,7 +4,7 @@
     "store/**/*",
     "types/**/*",
     "components/**/*"
-  ],
+, "global.d.ts"  ],
   "compilerOptions": {
     "outDir": "dist",
     "esModuleInterop": true,
@@ -24,8 +24,10 @@
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "exclude": [
     "node_modules"
