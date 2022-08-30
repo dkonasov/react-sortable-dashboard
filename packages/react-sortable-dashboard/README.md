@@ -1,11 +1,58 @@
-# `react-sortable-dashboard`
 
-> TODO: description
+# React sortable dashboard
+
+React library for building modern dashboards with drag-n-drop sorting
+
+
+## Links
+
+ - [Demo](https://stackblitz.com)
+ - [NPM package](https://www.npmjs.com/package/react-sortable-dashboard)
 
 ## Usage
 
-```
-const reactSortableDashboard = require('react-sortable-dashboard');
+```tsx
+import { Dashboard, DashboardWidget } from "react-sortable-dashboard";
 
-// TODO: DEMONSTRATE API
+const handleWidgetsReorder = (source: number, target: number) => {
+  // ... do some stuff with source and target index
+};
+
+function App() {
+  const widgets = ...; // Array of some widget objects
+
+  return (
+    <Dashboard rows={5} columns={5} onWidgetsReorder={handleWidgetsReorder}>
+      { widgets.map((widget) => (
+        <DashboardWidget
+              columns={widget.columns}
+              rows={widget.rows}
+              key={widget.id}
+              dragRef={dragTriggerRef}>
+              <SomeWidgetComponent />
+        </DashboardWidget>
+      ))}
+    </Dashboard>
+  );
+}
 ```
+
+
+## API Reference
+
+#### Dashboard
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `rows` | `number` | **Required**. Total number of rows available for widgets on this dashboard |
+| `columns` | `number` | **Required**. Total number of columns available for widgets on this dashboard |
+| `onWidgetsReorder` | `(source: number, target: number) => void` | handler for event that fires when order of widgets was changed via drag and drop |
+
+#### DashboardWidget
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `rows` | `number` | **Required**. Number of rows occupied by widget |
+| `columns` | `number` | **Required**. Number of columns occupied by widget |
+| `dragRef` | `RefObject<HTMLElement>` | Ref to widget child, that triggers drag and drop interaction
+
