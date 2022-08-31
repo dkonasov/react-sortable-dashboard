@@ -6,7 +6,7 @@ React library for building modern dashboards with drag-n-drop sorting
 
 ## Links
 
- - [Demo](https://stackblitz.com)
+ - [Demo](https://react-sortable-dashboard-dkonasov.vercel.app)
  - [NPM package](https://www.npmjs.com/package/react-sortable-dashboard)
 
 ## Usage
