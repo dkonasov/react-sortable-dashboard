@@ -1,0 +1,13 @@
+body {
+    font-family: Montserrat, sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+    margin: 0;
+    margin-bottom: 35px;
+}
