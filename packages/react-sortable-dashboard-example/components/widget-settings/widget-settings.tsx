@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { ChangeEvent, FC } from "react";
 import { deleteWidget, updateWidget } from "../../store/widget";
 import { Widget, WidgetType } from "../../types/widget";
+import { NumericInput } from "../numeric-input/numeric-input";
 import styles from "./widget-settings.module.css";
 
 export type WidgetSettingsProps = {
@@ -23,15 +24,15 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
   );
 
   const onColumnsChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      updateWidget({ ...widget, columns: Number(event.currentTarget.value) });
+    (value: number) => {
+      updateWidget({ ...widget, columns: value });
     },
     [widget]
   );
 
   const onRowsChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      updateWidget({ ...widget, rows: Number(event.currentTarget.value) });
+    (value: number) => {
+      updateWidget({ ...widget, rows: value });
     },
     [widget]
   );
@@ -57,23 +58,21 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
 
       <div>
         <label htmlFor={`columns-${widget.id}`}>Columns</label>
-        <input
-          type="number"
+        <NumericInput
           id={`columns-${widget.id}`}
           value={widget.columns}
-          min="1"
-          onChange={onColumnsChange}
+          min={1}
+          onValueChange={onColumnsChange}
         />
       </div>
 
       <div>
         <label htmlFor={`rows-${widget.id}`}>Rows</label>
-        <input
-          type="number"
+        <NumericInput
           id={`rows-${widget.id}`}
           value={widget.rows}
-          min="1"
-          onChange={onRowsChange}
+          min={1}
+          onValueChange={onRowsChange}
         />
       </div>
       <button type="button" disabled={totalWidgets === 1} onClick={onDelete}>

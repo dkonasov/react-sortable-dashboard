@@ -6,14 +6,15 @@ import {
   updateColumns,
   updateRows,
 } from "../../store/dashboard";
+import { NumericInput } from "../numeric-input/numeric-input";
 import styles from "./dashboard-settings.module.css";
 
-const onRowsChange = (event: ChangeEvent<HTMLInputElement>) => {
-  updateRows(Number(event.currentTarget.value));
+const onRowsChange = (value: number) => {
+  updateRows(value);
 };
 
-const onColumnsChange = (event: ChangeEvent<HTMLInputElement>) => {
-  updateColumns(Number(event.currentTarget.value));
+const onColumnsChange = (value: number) => {
+  updateColumns(value);
 };
 
 export const DashboardSettings = () => {
@@ -25,23 +26,21 @@ export const DashboardSettings = () => {
       <h2>Dashboard settings</h2>
       <div>
         <label htmlFor="rows">Rows</label>
-        <input
-          type="number"
+        <NumericInput
           value={rows}
           id="rows"
-          onChange={onRowsChange}
-          min="1"
+          onValueChange={onRowsChange}
+          min={1}
         />
       </div>
 
       <div>
-        <label htmlFor="colums">Colowns</label>
-        <input
-          type="number"
+        <label htmlFor="columns">Colowns</label>
+        <NumericInput
           value={columns}
           id="columns"
-          min="1"
-          onChange={onColumnsChange}
+          onValueChange={onColumnsChange}
+          min={1}
         />
       </div>
     </div>

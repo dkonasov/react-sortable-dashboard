@@ -1,0 +1,30 @@
+.root {
+    position: relative;
+}
+
+.spinnerButton {
+    position: absolute;
+    right: 13px;
+    display: inline-flex;
+    padding: 0px 10px 4px 10px;
+    height: 50%;
+    align-items: flex-end;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.input {
+    border: none;
+    height: 100%;
+    padding: 0px;
+    outline: none;
+    font: var(--main-font);
+    padding: 0px 0px 0px 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bottomButton {
+    bottom: 0;
+    transform: rotate(180deg);
+}
