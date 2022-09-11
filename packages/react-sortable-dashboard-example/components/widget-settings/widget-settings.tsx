@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { ChangeEvent, FC } from "react";
 import { deleteWidget, updateWidget } from "../../store/widget";
 import { Widget, WidgetType } from "../../types/widget";
+import { Button } from "../button/button";
 import { NumericInput } from "../numeric-input/numeric-input";
 import { Select } from "../select/select";
 import styles from "./widget-settings.module.css";
@@ -52,15 +53,6 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
           options={["stonks", "scoreboard", "map"]}
           onValueChange={onTypeChange}
         />
-        {/* <select
-          id={`type-${widget.id}`}
-          value={widget.type}
-          onChange={onTypeChange}
-        >
-          <option>stonks</option>
-          <option>scoreboard</option>
-          <option>map</option>
-        </select> */}
       </div>
 
       <div>
@@ -82,9 +74,9 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
           onValueChange={onRowsChange}
         />
       </div>
-      <button type="button" disabled={totalWidgets === 1} onClick={onDelete}>
-        Удалить
-      </button>
+      <Button type="button" disabled={totalWidgets === 1} onClick={onDelete}>
+        Delete
+      </Button>
     </div>
   );
 };

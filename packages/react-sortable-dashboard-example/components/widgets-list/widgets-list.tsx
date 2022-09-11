@@ -1,5 +1,6 @@
 import { useStore } from "effector-react";
 import { $widgets, createWidget } from "../../store/widget";
+import { AddButton } from "../add-button/add-button";
 import { WidgetSettings } from "../widget-settings/widget-settings";
 import styles from "./widgets-list.module.css";
 
@@ -17,9 +18,9 @@ export const WidgetsList = () => {
         />
       ))}
       <div className={styles.addRow}>
-        <button type="button" onClick={() => createWidget()}>
+        <AddButton type="button" onClick={() => createWidget()}>
           Add new widget
-        </button>
+        </AddButton>
       </div>
     </div>
   );
