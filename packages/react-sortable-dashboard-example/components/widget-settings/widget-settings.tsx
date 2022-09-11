@@ -3,6 +3,7 @@ import { ChangeEvent, FC } from "react";
 import { deleteWidget, updateWidget } from "../../store/widget";
 import { Widget, WidgetType } from "../../types/widget";
 import { NumericInput } from "../numeric-input/numeric-input";
+import { Select } from "../select/select";
 import styles from "./widget-settings.module.css";
 
 export type WidgetSettingsProps = {
@@ -14,10 +15,10 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
   const { widget, totalWidgets } = props;
 
   const onTypeChange = useCallback(
-    (event: ChangeEvent<HTMLSelectElement>) => {
+    (value: string) => {
       updateWidget({
         ...widget,
-        type: event.currentTarget.value as WidgetType,
+        type: value as WidgetType,
       });
     },
     [widget]
@@ -45,7 +46,13 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
     <div className={styles.root}>
       <div>
         <label htmlFor={`type-${widget.id}`}>Type</label>
-        <select
+        <Select
+          id={`type-${widget.id}`}
+          value={widget.type}
+          options={["stonks", "scoreboard", "map"]}
+          onValueChange={onTypeChange}
+        />
+        {/* <select
           id={`type-${widget.id}`}
           value={widget.type}
           onChange={onTypeChange}
@@ -53,7 +60,7 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
           <option>stonks</option>
           <option>scoreboard</option>
           <option>map</option>
-        </select>
+        </select> */}
       </div>
 
       <div>

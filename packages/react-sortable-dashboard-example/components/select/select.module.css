@@ -1,0 +1,34 @@
+.root {
+    padding: 0px 30px;
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr min-content;
+    gap: 6px;
+    align-items: center;
+    cursor: pointer;
+    min-width: 200px;
+    box-sizing: border-box;
+}
+
+.dropdown {
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 30px;
+    background: #fff;
+    padding: 17px 14px 31px 14px;
+    box-sizing: border-box;
+}
+
+.option {
+    position: relative;
+    padding-left: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}

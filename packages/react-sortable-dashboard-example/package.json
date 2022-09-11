@@ -18,6 +18,7 @@
     "url": "https://github.com/dkonasov/react-sortable-dashboard/issues"
   },
   "dependencies": {
+    "@floating-ui/react-dom-interactions": "^0.9.3",
     "classnames": "^2.3.1",
     "d3": "^7.6.1",
     "d3-selection": "^3.0.0",
