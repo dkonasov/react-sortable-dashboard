@@ -23,24 +23,30 @@ export const DashboardSettings = () => {
 
   return (
     <div className={styles.root}>
-      <h2>Dashboard settings</h2>
-      <div>
-        <label htmlFor="rows">Rows</label>
+      <h2 className={styles.title}>Dashboard settings</h2>
+      <div className={styles.row}>
+        <label htmlFor="rows" className={styles.label}>
+          Rows
+        </label>
         <NumericInput
           value={rows}
           id="rows"
           onValueChange={onRowsChange}
           min={1}
+          className={styles.input}
         />
       </div>
 
-      <div>
-        <label htmlFor="columns">Colowns</label>
+      <div className={styles.row}>
+        <label htmlFor="columns" className={styles.label}>
+          Colowns
+        </label>
         <NumericInput
           value={columns}
           id="columns"
           onValueChange={onColumnsChange}
           min={1}
+          className={styles.input}
         />
       </div>
     </div>

@@ -1,4 +1,22 @@
 .root {
     display: grid;
-    gap: 10px;
+}
+
+.title {
+    margin-bottom: 37px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-top: 19px;
+}
+
+.label {
+    width: 102px;
+    margin-right: 11px;
+}
+
+.input {
+    width: 138px;
 }
