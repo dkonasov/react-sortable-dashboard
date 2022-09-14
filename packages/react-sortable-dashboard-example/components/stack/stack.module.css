@@ -1,5 +1,0 @@
-.root {
-    --stack-gap: 40px;
-    display: grid;
-    gap: var(--stack-gap);
-}

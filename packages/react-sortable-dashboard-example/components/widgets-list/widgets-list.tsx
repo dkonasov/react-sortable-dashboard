@@ -9,7 +9,6 @@ export const WidgetsList = () => {
 
   return (
     <div className={styles.root}>
-      <h2>Widgets settings</h2>
       {widgets.map((widget) => (
         <WidgetSettings
           widget={widget}

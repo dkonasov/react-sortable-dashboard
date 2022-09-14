@@ -112,7 +112,6 @@ export const Dashboard: FC<DashboardProps> = (props) => {
     <div
       style={{
         position: "relative",
-        width: squareSize > 0 ? squareSize * columns : undefined,
         height: squareSize > 0 ? squareSize * rows : undefined,
       }}
       ref={ref}
