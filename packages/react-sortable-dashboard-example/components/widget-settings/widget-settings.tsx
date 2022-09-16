@@ -45,38 +45,49 @@ export const WidgetSettings: FC<WidgetSettingsProps> = (props) => {
 
   return (
     <div className={styles.root}>
-      <div>
-        <label htmlFor={`type-${widget.id}`}>Type</label>
+      <div className={styles.typeBlock}>
+        <label htmlFor={`type-${widget.id}`} className={styles.typeLabel}>
+          Type
+        </label>
         <Select
           id={`type-${widget.id}`}
           value={widget.type}
           options={["stonks", "scoreboard", "map"]}
           onValueChange={onTypeChange}
+          className={styles.typeInput}
         />
       </div>
-
-      <div>
-        <label htmlFor={`columns-${widget.id}`}>Columns</label>
+      <div className={styles.dimensionsBlock}>
+        <label htmlFor={`columns-${widget.id}`} className={styles.columnLabel}>
+          Columns
+        </label>
         <NumericInput
           id={`columns-${widget.id}`}
           value={widget.columns}
           min={1}
           onValueChange={onColumnsChange}
+          className={styles.columnInput}
         />
-      </div>
 
-      <div>
-        <label htmlFor={`rows-${widget.id}`}>Rows</label>
+        <label htmlFor={`rows-${widget.id}`} className={styles.rowLabel}>
+          Rows
+        </label>
         <NumericInput
           id={`rows-${widget.id}`}
           value={widget.rows}
           min={1}
           onValueChange={onRowsChange}
+          className={styles.rowInput}
         />
+        <Button
+          type="button"
+          disabled={totalWidgets === 1}
+          onClick={onDelete}
+          className={styles.delete}
+        >
+          Delete
+        </Button>
       </div>
-      <Button type="button" disabled={totalWidgets === 1} onClick={onDelete}>
-        Delete
-      </Button>
     </div>
   );
 };

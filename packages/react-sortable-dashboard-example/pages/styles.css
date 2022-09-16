@@ -1,6 +1,7 @@
 body {
     --main-font: 24px/29px Montserrat, sans-serif;
     font: var(--main-font);
+    margin-left: 60px;
 }
 
 h2 {

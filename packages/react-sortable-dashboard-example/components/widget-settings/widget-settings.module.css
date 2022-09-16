@@ -1,4 +1,49 @@
 .root {
     display: grid;
-    grid-auto-flow: row;
+    row-gap: 26px;
+}
+
+.dimensionsBlock {
+    display: grid;
+     
+    grid-template: "columnsLabel columnsInput"
+                   "rowsLabel rowsInput"
+                   ". delete";
+    grid-template-columns: min-content min-content;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 26px;
+}
+
+.typeBlock {
+    display: grid;
+    column-gap: 23px;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+.typeLabel {
+}
+
+.typeInput {
+}
+
+.columnLabel {
+    grid-area: columnsLabel;
+}
+
+.columnInput {
+    grid-area: columnsInput;
+}
+
+.rowLabel {
+    grid-area: rowsLabel;
+}
+
+.rowInput {
+    grid-area: rowsInput;
+}
+
+.delete {
+    grid-area: delete;
 }
