@@ -1,0 +1,16 @@
+.dragTrigger {
+    cursor: pointer;
+}
+
+.root {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    height: 100%;
+    row-gap: 8px;
+}
+
+.widgetWrapper {
+    border-radius: 36px;
+    overflow: hidden;
+    background: #fff;
+}

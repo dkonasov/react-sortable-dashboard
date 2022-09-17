@@ -10,8 +10,10 @@ import {
 } from "react";
 
 export interface WidgetRendererProps extends HTMLAttributes<HTMLDivElement> {
-  dragRef?: RefObject<HTMLElement>;
-  onTriggerDragStart?: (event: DragEvent<HTMLDivElement>) => void;
+  dragRef?: RefObject<Element>;
+  onTriggerDragStart?: (
+    event: DragEvent<HTMLDivElement | SVGSVGElement>
+  ) => void;
 }
 
 export const WidgetRenderer: FC<PropsWithChildren<WidgetRendererProps>> = (

@@ -4,7 +4,7 @@ export interface DashboardWidgetProps {
   columns: number;
   rows: number;
   children: ReactNode;
-  dragRef?: RefObject<HTMLElement>;
+  dragRef?: RefObject<Element>;
 }
 
 export const DashboardWidget: FC<DashboardWidgetProps> = (_) => {

@@ -10,6 +10,8 @@ import { Map } from "../components/map/map";
 import { Scoreboard } from "../components/scoreboard/scoreboard";
 import { $columns, $rows } from "../store/dashboard";
 import { Main } from "../components/main/main";
+import { Drag } from "../components/icons/drag";
+import { WidgetWrapper } from "../components/widget-wrapper/widget-wrapper";
 
 const Index = () => {
   const widgets = useStore($widgets);
@@ -37,7 +39,7 @@ const Index = () => {
         >
           {widgets.map((widget) => {
             const WidgetComponent = widgetsComponents[widget.type];
-            const dragTriggerRef = createRef<HTMLDivElement>();
+            const dragTriggerRef = createRef<Element>();
 
             return (
               <DashboardWidget
@@ -46,8 +48,9 @@ const Index = () => {
                 key={widget.id}
                 dragRef={dragTriggerRef}
               >
-                <div ref={dragTriggerRef}>trigger</div>
-                <WidgetComponent />
+                <WidgetWrapper dragTriggerRef={dragTriggerRef}>
+                  <WidgetComponent />
+                </WidgetWrapper>
               </DashboardWidget>
             );
           })}
