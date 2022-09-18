@@ -4,4 +4,6 @@
     grid-template-columns: 318px 1fr;
     margin-top: 14px;
     gap: 24px;
+    height: calc(100% - 379px);
+    overflow-y: auto;
 }

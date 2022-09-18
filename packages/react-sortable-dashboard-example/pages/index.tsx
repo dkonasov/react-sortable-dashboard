@@ -12,6 +12,7 @@ import { $columns, $rows } from "../store/dashboard";
 import { Main } from "../components/main/main";
 import { Drag } from "../components/icons/drag";
 import { WidgetWrapper } from "../components/widget-wrapper/widget-wrapper";
+import { DashboardWrapper } from "../components/dashboard-wrapper/dashboard-wrapper";
 
 const Index = () => {
   const widgets = useStore($widgets);
@@ -30,31 +31,33 @@ const Index = () => {
       <h2>Widgets settings</h2>
       <Main>
         <WidgetsList />
-        <Dashboard
-          rows={rows}
-          columns={columns}
-          onWidgetsReorder={(source, target) =>
-            handleWidgetReorder([source, target])
-          }
-        >
-          {widgets.map((widget) => {
-            const WidgetComponent = widgetsComponents[widget.type];
-            const dragTriggerRef = createRef<Element>();
+        <DashboardWrapper>
+          <Dashboard
+            rows={rows}
+            columns={columns}
+            onWidgetsReorder={(source, target) =>
+              handleWidgetReorder([source, target])
+            }
+          >
+            {widgets.map((widget) => {
+              const WidgetComponent = widgetsComponents[widget.type];
+              const dragTriggerRef = createRef<Element>();
 
-            return (
-              <DashboardWidget
-                columns={widget.columns}
-                rows={widget.rows}
-                key={widget.id}
-                dragRef={dragTriggerRef}
-              >
-                <WidgetWrapper dragTriggerRef={dragTriggerRef}>
-                  <WidgetComponent />
-                </WidgetWrapper>
-              </DashboardWidget>
-            );
-          })}
-        </Dashboard>
+              return (
+                <DashboardWidget
+                  columns={widget.columns}
+                  rows={widget.rows}
+                  key={widget.id}
+                  dragRef={dragTriggerRef}
+                >
+                  <WidgetWrapper dragTriggerRef={dragTriggerRef}>
+                    <WidgetComponent />
+                  </WidgetWrapper>
+                </DashboardWidget>
+              );
+            })}
+          </Dashboard>
+        </DashboardWrapper>
       </Main>
     </>
   );

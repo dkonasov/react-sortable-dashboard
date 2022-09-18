@@ -2,6 +2,7 @@ body {
     --main-font: 24px/29px Montserrat, sans-serif;
     font: var(--main-font);
     margin-left: 60px;
+    margin-top: 0px;
 }
 
 h2 {
@@ -10,4 +11,12 @@ h2 {
     line-height: 39px;
     margin: 0;
     margin-bottom: 35px;
+}
+
+html, body, #__next {
+    height: 100%;
+}
+
+#__next {
+    overflow: auto;
 }
