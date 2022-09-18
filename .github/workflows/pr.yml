@@ -9,6 +9,8 @@ jobs:
   publish_package:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -31,14 +33,7 @@ jobs:
         run: lerna version -y --conventional-commits --include-merged-tags --ignore-changes **/__tests__/**
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: add npmrc
-        run: echo //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN} > packages/react-sortable-dashboard/.npmrc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: publish
         run: lerna publish from-package -y --no-verify-access
-        env:
-          NPM_CONFIG_USERCONFIG: ""
-          NODE_AUTH_TOKEN: ""
       
 
