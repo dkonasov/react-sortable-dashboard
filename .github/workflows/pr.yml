@@ -32,7 +32,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: add npmrc
-        run: echo //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN} > .npmrc
+        run: echo //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN} > packages/react-sortable-dashboard/.npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: publish
