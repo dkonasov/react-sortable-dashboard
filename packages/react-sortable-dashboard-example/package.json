@@ -5,6 +5,14 @@
   "author": "Konasov Dmitriy <d.konasov@yandex.ru>",
   "homepage": "https://github.com/dkonasov/react-sortable-dashboard#readme",
   "license": "MIT",
+  "main": "dist/app.js",
+  "private": "true",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dkonasov/react-sortable-dashboard.git"
