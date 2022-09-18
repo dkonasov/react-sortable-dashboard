@@ -16,6 +16,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
+          registry-url: 'https://registry.npmjs.org'
       - name: bootstrap
         run: npx lerna bootstrap
       - name: build
@@ -28,12 +29,8 @@ jobs:
         run: npx lerna version -y --conventional-commits --include-merged-tags --ignore-changes **/__tests__/**
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: add npmrc
-        run: echo //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN} > packages/react-sortable-dashboard/.npmrc
+      - name: publish
+        run: npx lerna publish from-package -y --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: cat npmrc
-        run: cat packages/react-sortable-dashboard/.npmrc
-      - name: publish
-        run: npx lerna publish from-package -y --no-verify-access --loglevel silly
 
