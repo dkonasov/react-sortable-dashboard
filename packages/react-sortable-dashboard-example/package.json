@@ -1,6 +1,6 @@
 {
   "name": "react-sortable-dashboard-example",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Example for react-sortable-dashboard library",
   "author": "Konasov Dmitriy <d.konasov@yandex.ru>",
   "homepage": "https://github.com/dkonasov/react-sortable-dashboard#readme",
@@ -37,7 +37,7 @@
     "ramda": "^0.28.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-sortable-dashboard": "^1.0.0"
+    "react-sortable-dashboard": "^1.0.1"
   },
   "devDependencies": {
     "@types/d3": "^7.4.0",
