@@ -33,5 +33,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: publish
-        run: npx lerna publish from-package -y --no-verify-access
+        run: npx lerna publish from-package -y --no-verify-access --registry https://registry.npmjs.org
 
