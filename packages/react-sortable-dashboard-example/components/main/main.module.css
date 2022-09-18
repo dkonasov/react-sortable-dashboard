@@ -3,5 +3,5 @@
     grid-auto-flow: column;
     grid-template-columns: 318px 1fr;
     margin-top: 14px;
-    gap: 52px;
+    gap: 24px;
 }
