@@ -2,3 +2,21 @@
     width: 100%;
     height: 100%;
 }
+
+.root :global(.ol-zoom) {
+    margin: 19px 0 0 26px;
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-gap: 7px;
+}
+
+.root :global(.ol-zoom-in),  .root :global(.ol-zoom-out){
+    width: 29px;
+    height: 29px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 17px;
+    padding: 0px;
+    font-weight: bold;
+}

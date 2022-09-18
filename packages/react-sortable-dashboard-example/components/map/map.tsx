@@ -5,6 +5,7 @@ import TileLayer from "ol/layer/Tile";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { fromLonLat } from "ol/proj";
+import { Attribution, Zoom } from "ol/control";
 import styles from "./map.module.css";
 
 export const Map: FC = () => {
@@ -21,6 +22,7 @@ export const Map: FC = () => {
         if (entries[0].contentRect.width > 0) {
           mapRef.current = new OLMap({
             target: widgetRef.current,
+            controls: [new Zoom()],
             layers: [
               new TileLayer({
                 source: new OSM(),
