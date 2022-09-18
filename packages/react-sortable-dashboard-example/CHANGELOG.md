@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/dkonasov/react-sortable-dashboard/compare/react-sortable-dashboard-example@1.1.0...react-sortable-dashboard-example@1.1.1) (2022-09-18)
+
+
+### Bug Fixes
+
+* **react-sortable-dashboard-example:** styles fix for safari ([ebad2fd](https://github.com/dkonasov/react-sortable-dashboard/commit/ebad2fd2b55248847aa7a2719b2ef03875be01d1))
+
+
+
+
+
 # 1.1.0 (2022-09-18)
 
 
