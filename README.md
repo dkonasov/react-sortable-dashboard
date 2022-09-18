@@ -23,15 +23,19 @@ function App() {
 
   return (
     <Dashboard rows={5} columns={5} onWidgetsReorder={handleWidgetsReorder}>
-      { widgets.map((widget) => (
-        <DashboardWidget
-              columns={widget.columns}
-              rows={widget.rows}
-              key={widget.id}
-              dragRef={dragTriggerRef}>
-              <SomeWidgetComponent />
-        </DashboardWidget>
-      ))}
+      { widgets.map((widget) => {
+        const dragTriggerRef = createRef<HTMLSpanElement>(); // Ref for element that handles drag-and-drop interaction
+          return (
+          <DashboardWidget
+                columns={widget.columns}
+                rows={widget.rows}
+                key={widget.id}
+                dragRef={dragTriggerRef}>
+                <span className="drag-trigger" ref={dragTriggerRef}></span>
+                <SomeWidgetComponent />
+          </DashboardWidget>
+        )
+      })}
     </Dashboard>
   );
 }
