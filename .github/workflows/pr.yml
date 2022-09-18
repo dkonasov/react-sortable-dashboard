@@ -17,20 +17,25 @@ jobs:
         with:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
+      - name: install lerna
+        run: npm i lerna@4.0.0 -g
       - name: bootstrap
-        run: npx lerna bootstrap
+        run: lerna bootstrap
       - name: build
-        run: npx lerna run build --scope react-sortable-dashboard
+        run: lerna run build --scope react-sortable-dashboard
       - name: git setup
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor}}@users.noreply.github.com"
       - name: version
-        run: npx lerna version -y --conventional-commits --include-merged-tags --ignore-changes **/__tests__/**
+        run: lerna version -y --conventional-commits --include-merged-tags --ignore-changes **/__tests__/**
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: publish
-        run: npx lerna publish from-package -y --no-verify-access
+      - name: add npmrc
+        run: echo //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN} > .npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: publish
+        run: lerna publish from-package -y --no-verify-access
+      
 
