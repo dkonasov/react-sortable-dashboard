@@ -58,8 +58,8 @@ export const Stonks: FC = () => {
       }
 
       ref.current.innerHTML = "";
-      const resX = entries[0].contentRect.width;
-      const resY = entries[0].contentRect.height;
+      const resX = Math.floor(entries[0].contentRect.width);
+      const resY = Math.floor(entries[0].contentRect.height);
       const svg = select(ref.current).attr("viewBox", [0, 0, resX, resY]);
       const xRange = [marginLeft, resX - marginRight];
       const yRange = [resY - marginBottom, marginTop];
@@ -125,5 +125,9 @@ export const Stonks: FC = () => {
     };
   }, [ref.current]);
 
-  return <svg ref={ref} className={styles.root}></svg>;
+  return (
+    <div className={styles.root}>
+      <svg ref={ref} className={styles.image}></svg>
+    </div>
+  );
 };

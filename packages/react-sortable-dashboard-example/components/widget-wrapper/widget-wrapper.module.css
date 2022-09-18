@@ -15,4 +15,5 @@
     border-radius: 36px;
     overflow: hidden;
     background: #fff;
+    isolation: isolate;
 }
