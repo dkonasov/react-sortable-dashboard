@@ -32,6 +32,8 @@ jobs:
         run: echo //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN} > packages/react-sortable-dashboard/.npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: cat npmrc
+        run: cat packages/react-sortable-dashboard/.npmrc
       - name: publish
-        run: npx lerna publish from-package -y --no-verify-access --loglevel=verbose
+        run: npx lerna publish from-package -y --no-verify-access --loglevel silly
 
