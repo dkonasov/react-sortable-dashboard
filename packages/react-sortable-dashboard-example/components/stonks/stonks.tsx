@@ -68,9 +68,9 @@ export const Stonks: FC = () => {
       const yScale = scaleLinear(yDomain, yRange);
 
       const xAxis = axisBottom(xScale)
-        .ticks(resX / 80)
+        .ticks(resX / 100)
         .tickSizeOuter(0);
-      const yAxis = axisLeft(yScale).ticks(resY / 40);
+      const yAxis = axisLeft(yScale).ticks(resY / 100);
 
       const line = d3Line<number>()
         .curve(curveLinear)
@@ -80,11 +80,13 @@ export const Stonks: FC = () => {
       svg
         .append("g")
         .attr("transform", `translate(0,${resY - marginBottom})`)
+        .style("font-size", "16px")
         .call(xAxis);
 
       svg
         .append("g")
         .attr("transform", `translate(${marginLeft},0)`)
+        .style("font-size", "16px")
         .call(yAxis)
         .call((g) =>
           g
@@ -98,6 +100,7 @@ export const Stonks: FC = () => {
             .append("text")
             .attr("x", -marginLeft)
             .attr("y", 10)
+            .attr("font-size", 12)
             .attr("fill", "currentColor")
             .attr("text-anchor", "start")
             .text("Close")
