@@ -1,5 +1,5 @@
 
-# React sortable dashboard
+# React sortable dashboard &middot; [![npm](https://img.shields.io/npm/v/react-sortable-dashboard)](https://www.npmjs.com/package/react-sortable-dashboard)
 
 React library for building modern dashboards with drag-n-drop sorting
 
@@ -7,7 +7,6 @@ React library for building modern dashboards with drag-n-drop sorting
 ## Links
 
  - [Demo](https://react-sortable-dashboard-dkonasov.vercel.app)
- - [NPM package](https://www.npmjs.com/package/react-sortable-dashboard)
 
 ## Usage
 
