@@ -3,7 +3,7 @@ import { FC, ReactNode, RefObject } from "react";
 export interface DashboardWidgetProps {
   columns: number;
   rows: number;
-  children: ReactNode;
+  children?: ReactNode;
   dragRef?: RefObject<Element>;
 }
 
