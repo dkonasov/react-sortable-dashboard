@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/dkonasov/react-sortable-dashboard/compare/react-sortable-dashboard-example@1.1.3...react-sortable-dashboard-example@1.1.4) (2022-09-25)
+
+**Note:** Version bump only for package react-sortable-dashboard-example
+
+
+
+
+
 ## [1.1.3](https://github.com/dkonasov/react-sortable-dashboard/compare/react-sortable-dashboard-example@1.1.2...react-sortable-dashboard-example@1.1.3) (2022-09-23)
 
 **Note:** Version bump only for package react-sortable-dashboard-example
