@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/dkonasov/react-sortable-dashboard/compare/react-sortable-dashboard@1.0.4...react-sortable-dashboard@1.0.5) (2022-09-25)
+
+
+### Bug Fixes
+
+* fixed chidlren normalization logic for dashboard component ([75d58d4](https://github.com/dkonasov/react-sortable-dashboard/commit/75d58d49ee2b455aedaf3e2f27c5e093d2625882))
+
+
+
+
+
 ## [1.0.4](https://github.com/dkonasov/react-sortable-dashboard/compare/react-sortable-dashboard@1.0.3...react-sortable-dashboard@1.0.4) (2022-09-25)
 
 
