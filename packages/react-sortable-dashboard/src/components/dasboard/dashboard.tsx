@@ -14,12 +14,34 @@ import { DashboardWidgetProps } from "../widget/dashboard-widget";
 export interface DashboardProps {
   rows: number;
   columns: number;
-  children: ReactElement<DashboardWidgetProps>[];
+  children?:
+    | ReactElement<DashboardWidgetProps>[]
+    | ReactElement<DashboardWidgetProps>;
   onWidgetsReorder?: (source: number, target: number) => void;
 }
 
+const normilizeChildren = (
+  children?:
+    | ReactElement<DashboardWidgetProps>[]
+    | ReactElement<DashboardWidgetProps>
+): ReactElement<DashboardWidgetProps>[] => {
+  let result: ReactElement<DashboardWidgetProps>[] | undefined;
+
+  if (!children) {
+    return null;
+  }
+
+  if (children && !Array.isArray(children)) {
+    return [children];
+  }
+
+  return children as ReactElement<DashboardWidgetProps>[];
+};
+
 export const Dashboard: FC<DashboardProps> = (props) => {
-  const { children, columns, onWidgetsReorder, rows } = props;
+  const { columns, onWidgetsReorder, rows } = props;
+  const children = normilizeChildren(props.children);
+
   const [squareSize, setSquareSize] = useState(0);
   const [source, setSource] = useState(-1);
   const ref = useRef<HTMLDivElement>();
