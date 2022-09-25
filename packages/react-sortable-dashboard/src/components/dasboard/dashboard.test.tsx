@@ -1,6 +1,5 @@
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import { DashboardWidget } from "../widget/dashboard-widget";
 import { Dashboard } from "./dashboard";
 
 let container: HTMLDivElement | null = null;
@@ -19,14 +18,7 @@ afterEach(() => {
 describe("Dashboard component", () => {
   it("should render some root element", () => {
     act(() => {
-      render(
-        <Dashboard rows={1} columns={1}>
-          <DashboardWidget rows={1} columns={1}>
-            <></>
-          </DashboardWidget>
-        </Dashboard>,
-        container
-      );
+      render(<Dashboard rows={1} columns={1}></Dashboard>, container);
     });
   });
 });
