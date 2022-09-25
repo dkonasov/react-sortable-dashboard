@@ -28,7 +28,7 @@ const normilizeChildren = (
   let result: ReactElement<DashboardWidgetProps>[] | undefined;
 
   if (!children) {
-    return null;
+    return [];
   }
 
   if (children && !Array.isArray(children)) {
