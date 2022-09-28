@@ -13,6 +13,6 @@ jobs:
       - name: install lerna
         run: npm i lerna@4.0.0 -g
       - name: bootstrap
-        run: lerna bootstrap
+        run: lerna bootstrap --hoist
       - name: build
         run: lerna run test
