@@ -14,5 +14,5 @@ jobs:
         run: npm i lerna@4.0.0 -g
       - name: bootstrap
         run: lerna bootstrap --hoist
-      - name: build
+      - name: test
         run: lerna run test
