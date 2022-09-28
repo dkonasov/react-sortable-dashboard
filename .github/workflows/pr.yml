@@ -1,39 +1,18 @@
-name: publish
+name: pr
 on:
   pull_request:
-    types:
-      - closed
-    branches:
-      - main
+    types: [opened, reopened, synchronize]
 jobs:
-  publish_package:
-    if: github.event.pull_request.merged == true
+  tests:
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: "0"
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-          registry-url: 'https://registry.npmjs.org'
       - name: install lerna
         run: npm i lerna@4.0.0 -g
       - name: bootstrap
         run: lerna bootstrap
       - name: build
-        run: lerna run build --scope react-sortable-dashboard
-      - name: git setup
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor}}@users.noreply.github.com"
-      - name: version
-        run: lerna version -y --conventional-commits --include-merged-tags --ignore-changes **/__tests__/**
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: publish
-        run: lerna publish from-package -y --no-verify-access
-      
-
+        run: lerna run test
