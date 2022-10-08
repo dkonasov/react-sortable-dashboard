@@ -26,5 +26,7 @@ describe("Dashboard component", () => {
     act(() => {
       root.render(<Dashboard rows={1} columns={1}></Dashboard>);
     });
+
+    expect(container.children.length).toBe(1);
   });
 });
