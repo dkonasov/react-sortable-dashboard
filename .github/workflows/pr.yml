@@ -16,3 +16,16 @@ jobs:
         run: lerna bootstrap --hoist
       - name: test
         run: lerna run test
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: install lerna
+        run: npm i lerna@4.0.0 -g
+      - name: bootstrap
+        run: lerna bootstrap --hoist
+      - name: test
+        run: lerna run test:e2e
