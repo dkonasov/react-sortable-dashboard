@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta, Story } from "@storybook/react";
 
 import { Dashboard } from "../components/dasboard/dashboard";
 import { DashboardWidget } from "../components/widget/dashboard-widget";
@@ -9,13 +9,27 @@ export default {
   component: Dashboard,
 } as ComponentMeta<typeof Dashboard>;
 
-const Template: ComponentStory<typeof Dashboard> = (args) => (
-  <Dashboard rows={1} columns={1}>
-    <DashboardWidget rows={1} columns={1}>
-      Test widget
-    </DashboardWidget>
-  </Dashboard>
-);
+interface StoryArgs {
+  columns: number;
+  rows: number;
+  widgets: number[];
+}
+
+const Template: Story<StoryArgs> = (args) => {
+  return (
+    <Dashboard rows={args.rows} columns={args.columns}>
+      {args.widgets.map((widget, index) => (
+        <DashboardWidget rows={widget[1]} columns={widget[0]} key={index}>
+          Test widget
+        </DashboardWidget>
+      ))}
+    </Dashboard>
+  );
+};
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  columns: 1,
+  rows: 1,
+  widgets: [[1, 1]],
+};
