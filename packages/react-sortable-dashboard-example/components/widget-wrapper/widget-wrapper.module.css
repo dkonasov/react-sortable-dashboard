@@ -7,7 +7,6 @@
     grid-template-rows: min-content 1fr;
     height: 100%;
     row-gap: 8px;
-    padding: 0 0 18px 28px;
     box-sizing: border-box;
 }
 

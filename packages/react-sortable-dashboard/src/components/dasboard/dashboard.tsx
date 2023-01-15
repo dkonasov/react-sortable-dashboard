@@ -18,6 +18,8 @@ export interface DashboardProps {
     | ReactElement<DashboardWidgetProps>[]
     | ReactElement<DashboardWidgetProps>;
   onWidgetsReorder?: (source: number, target: number) => void;
+  horizontalSpacing?: number;
+  verticalSpacing?: number;
 }
 
 const normilizeChildren = (
@@ -39,7 +41,13 @@ const normilizeChildren = (
 };
 
 export const Dashboard: FC<DashboardProps> = (props) => {
-  const { columns, onWidgetsReorder, rows } = props;
+  const {
+    columns,
+    onWidgetsReorder,
+    rows,
+    horizontalSpacing = 0,
+    verticalSpacing = 0,
+  } = props;
   const children = normilizeChildren(props.children);
 
   const [squareSize, setSquareSize] = useState(0);
@@ -70,9 +78,11 @@ export const Dashboard: FC<DashboardProps> = (props) => {
 
   useEffect(() => {
     if (ref.current) {
-      setSquareSize(ref.current.clientWidth / columns);
+      setSquareSize(
+        (ref.current.clientWidth - verticalSpacing * (columns - 1)) / columns
+      );
     }
-  }, [ref.current, columns]);
+  }, [ref.current, columns, verticalSpacing]);
 
   const offsets = useMemo(() => {
     const field = Array(rows)
@@ -103,7 +113,18 @@ export const Dashboard: FC<DashboardProps> = (props) => {
               .every((val) => !val)
           )
       ) {
-        result.push([coords[0] * squareSize, coords[1] * squareSize]);
+        const offsetX =
+          verticalSpacing > 0 && coords[1] > 0
+            ? verticalSpacing * coords[1]
+            : 0;
+        const offsetY =
+          horizontalSpacing > 0 && coords[0] > 0
+            ? horizontalSpacing * coords[0]
+            : 0;
+        result.push([
+          coords[0] * squareSize + offsetY,
+          coords[1] * squareSize + offsetX,
+        ]);
 
         field
           .slice(coords[0], coords[0] + children[currentChildIndex].props.rows)
@@ -134,7 +155,10 @@ export const Dashboard: FC<DashboardProps> = (props) => {
     <div
       style={{
         position: "relative",
-        height: squareSize > 0 ? squareSize * rows : undefined,
+        height:
+          squareSize > 0
+            ? squareSize * rows + horizontalSpacing * (rows - 1)
+            : undefined,
       }}
       ref={ref}
     >
@@ -144,8 +168,12 @@ export const Dashboard: FC<DashboardProps> = (props) => {
             position: "absolute",
             top: element[0],
             left: element[1],
-            width: squareSize * children[index].props.columns,
-            height: squareSize * children[index].props.rows,
+            width:
+              squareSize * children[index].props.columns +
+              verticalSpacing * (children[index].props.columns - 1),
+            height:
+              squareSize * children[index].props.rows +
+              horizontalSpacing * (children[index].props.rows - 1),
           }}
           dragRef={children[index].props.dragRef}
           onTriggerDragStart={() => {

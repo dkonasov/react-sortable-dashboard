@@ -13,11 +13,18 @@ interface StoryArgs {
   columns: number;
   rows: number;
   widgets: number[];
+  horizontalSpacing: number;
+  verticalSpacing: number;
 }
 
 const Template: Story<StoryArgs> = (args) => {
   return (
-    <Dashboard rows={args.rows} columns={args.columns}>
+    <Dashboard
+      rows={args.rows}
+      columns={args.columns}
+      horizontalSpacing={args.horizontalSpacing}
+      verticalSpacing={args.verticalSpacing}
+    >
       {args.widgets.map((widget, index) => (
         <DashboardWidget rows={widget[1]} columns={widget[0]} key={index}>
           Test widget
@@ -32,4 +39,6 @@ Default.args = {
   columns: 1,
   rows: 1,
   widgets: [[1, 1]],
+  horizontalSpacing: 0,
+  verticalSpacing: 0,
 };

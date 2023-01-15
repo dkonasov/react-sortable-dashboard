@@ -8,7 +8,12 @@ import { $widgets, moveWidget } from "../store/widget";
 import { WidgetType } from "../types/widget";
 import { Map } from "../components/map/map";
 import { Scoreboard } from "../components/scoreboard/scoreboard";
-import { $columns, $rows } from "../store/dashboard";
+import {
+  $columns,
+  $horizontalSpacing,
+  $rows,
+  $verticalSpacing,
+} from "../store/dashboard";
 import { Main } from "../components/main/main";
 import { Drag } from "../components/icons/drag";
 import { WidgetWrapper } from "../components/widget-wrapper/widget-wrapper";
@@ -23,6 +28,10 @@ const Index = () => {
   };
   const rows = useStore($rows);
   const columns = useStore($columns);
+
+  const horizontalSpacing = useStore($horizontalSpacing);
+  const verticalSpacing = useStore($verticalSpacing);
+
   const handleWidgetReorder = useEvent(moveWidget);
 
   return (
@@ -35,6 +44,8 @@ const Index = () => {
           <Dashboard
             rows={rows}
             columns={columns}
+            horizontalSpacing={horizontalSpacing}
+            verticalSpacing={verticalSpacing}
             onWidgetsReorder={(source, target) =>
               handleWidgetReorder([source, target])
             }
