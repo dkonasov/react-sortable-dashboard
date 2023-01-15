@@ -1,10 +1,14 @@
-import { useStore } from "effector-react";
+import { useEvent, useStore } from "effector-react";
 import { ChangeEvent } from "react";
 import {
   $columns,
+  $horizontalSpacing,
   $rows,
+  $verticalSpacing,
   updateColumns,
+  updateHorizontalSpacing,
   updateRows,
+  updateVerticalSpacing,
 } from "../../store/dashboard";
 import { NumericInput } from "../numeric-input/numeric-input";
 import styles from "./dashboard-settings.module.css";
@@ -20,6 +24,11 @@ const onColumnsChange = (value: number) => {
 export const DashboardSettings = () => {
   const rows = useStore($rows);
   const columns = useStore($columns);
+  const onHorizontalSpacingChange = useEvent(updateHorizontalSpacing);
+  const onVerticalSpacingChange = useEvent(updateVerticalSpacing);
+
+  const horizontalSpacing = useStore($horizontalSpacing);
+  const verticalSpacing = useStore($verticalSpacing);
 
   return (
     <div className={styles.root}>
@@ -46,6 +55,32 @@ export const DashboardSettings = () => {
           id="columns"
           onValueChange={onColumnsChange}
           min={1}
+          className={styles.input}
+        />
+      </div>
+
+      <div className={styles.row}>
+        <label htmlFor="horizontalSpacing" className={styles.label}>
+          Horizontal spacing
+        </label>
+        <NumericInput
+          value={horizontalSpacing}
+          id="horizontalSpacing"
+          onValueChange={onHorizontalSpacingChange}
+          min={0}
+          className={styles.input}
+        />
+      </div>
+
+      <div className={styles.row}>
+        <label htmlFor="verticalSpacing" className={styles.label}>
+          Vertical spacing
+        </label>
+        <NumericInput
+          value={verticalSpacing}
+          id="verticalSpacing"
+          onValueChange={onVerticalSpacingChange}
+          min={0}
           className={styles.input}
         />
       </div>

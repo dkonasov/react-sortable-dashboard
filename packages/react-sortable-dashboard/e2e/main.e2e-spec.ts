@@ -318,5 +318,150 @@ describe("dashboard", () => {
 
       expect(widgetsCount).toBe(2);
     });
+
+    describe("and spacings", () => {
+      it("should render two widgets with vertical spacing with valid width, height and offset", async () => {
+        const page = await preparePage(
+          "columns:2;widgets[1][0]:1;widgets[1][1]:1;verticalSpacing:1"
+        );
+
+        const [dashboardWidth, dashboardHeight, widgetDimensions] =
+          await page.evaluate((rootElementSelector) => {
+            const container = document.querySelector(rootElementSelector);
+            const dashboard = container?.firstElementChild;
+
+            return [
+              dashboard?.clientWidth ?? 0,
+              dashboard?.clientHeight ?? 0,
+              [
+                {
+                  width: Number(
+                    (
+                      dashboard?.children[0] as HTMLElement
+                    ).style.width.substring(
+                      0,
+                      (dashboard?.children[0] as HTMLElement).style.width
+                        .length - 2
+                    ) ?? 0
+                  ),
+                  height: dashboard?.children[0].clientHeight ?? 0,
+                  offsetX: Number(
+                    (dashboard?.children[0] as HTMLElement).style.left.replace(
+                      "px",
+                      ""
+                    )
+                  ),
+                  offsetY:
+                    (dashboard?.children[0] as HTMLElement).offsetTop ?? 0,
+                },
+                {
+                  width: Number(
+                    (
+                      dashboard?.children[1] as HTMLElement
+                    ).style.height.substring(
+                      0,
+                      (dashboard?.children[1] as HTMLElement).style.width
+                        .length - 2
+                    )
+                  ),
+                  height: dashboard?.children[1].clientHeight ?? 0,
+                  offsetX: Number(
+                    (dashboard?.children[1] as HTMLElement).style.left.replace(
+                      "px",
+                      ""
+                    )
+                  ),
+                  offsetY:
+                    (dashboard?.children[1] as HTMLElement).offsetTop ?? 0,
+                },
+              ],
+            ] as [number, number, WidgetDimensions[]];
+          }, rootElementSelector);
+
+        expect(widgetDimensions[0].width).toEqual((dashboardWidth - 1) / 2);
+        expect(widgetDimensions[1].width).toEqual((dashboardWidth - 1) / 2);
+
+        expect(widgetDimensions[0].height).toEqual(dashboardHeight);
+        expect(widgetDimensions[1].height).toEqual(dashboardHeight);
+
+        expect(widgetDimensions[0].offsetX).toEqual(0);
+        expect(widgetDimensions[1].offsetX).toEqual(
+          (dashboardWidth - 1) / 2 + 1
+        );
+
+        expect(widgetDimensions[0].offsetY).toEqual(0);
+        expect(widgetDimensions[1].offsetY).toEqual(0);
+      });
+
+      it("should render two widgets with horizontal spacing with valid width, height and offset", async () => {
+        const page = await preparePage(
+          "rows:2;widgets[1][0]:1;widgets[1][1]:1;horizontalSpacing:1"
+        );
+
+        const [dashboardWidth, dashboardHeight, widgetDimensions] =
+          await page.evaluate((rootElementSelector) => {
+            const container = document.querySelector(rootElementSelector);
+            const dashboard = container?.firstElementChild;
+
+            return [
+              dashboard?.clientWidth ?? 0,
+              Number(
+                (dashboard as HTMLElement).style.height.substring(
+                  0,
+                  (dashboard as HTMLElement).style.height.length - 2
+                )
+              ),
+              [
+                {
+                  width: dashboard?.children[0].clientWidth ?? 0,
+                  height: Number(
+                    (
+                      dashboard?.children[0] as HTMLElement
+                    ).style.height.substring(
+                      0,
+                      (dashboard?.children[0] as HTMLElement).style.height
+                        .length - 2
+                    ) ?? 0
+                  ),
+                  offsetX:
+                    (dashboard?.children[0] as HTMLElement).offsetLeft ?? 0,
+                  offsetY:
+                    (dashboard?.children[0] as HTMLElement).offsetTop ?? 0,
+                },
+                {
+                  width: dashboard?.children[1].clientWidth ?? 0,
+                  height: Number(
+                    (
+                      dashboard?.children[1] as HTMLElement
+                    ).style.height.substring(
+                      0,
+                      (dashboard?.children[1] as HTMLElement).style.height
+                        .length - 2
+                    ) ?? 0
+                  ),
+                  offsetX:
+                    (dashboard?.children[1] as HTMLElement).offsetLeft ?? 0,
+                  offsetY:
+                    (dashboard?.children[1] as HTMLElement).offsetTop ?? 0,
+                },
+              ],
+            ] as [number, number, WidgetDimensions[]];
+          }, rootElementSelector);
+
+        expect(widgetDimensions[0].width).toEqual(dashboardWidth);
+        expect(widgetDimensions[1].width).toEqual(dashboardWidth);
+
+        expect(widgetDimensions[0].height).toEqual((dashboardHeight - 1) / 2);
+        expect(widgetDimensions[1].height).toEqual((dashboardHeight - 1) / 2);
+
+        expect(widgetDimensions[0].offsetX).toEqual(0);
+        expect(widgetDimensions[1].offsetX).toEqual(0);
+
+        expect(widgetDimensions[0].offsetY).toEqual(0);
+        expect(widgetDimensions[1].offsetY).toEqual(
+          (dashboardHeight - 1) / 2 + 1
+        );
+      });
+    });
   });
 });

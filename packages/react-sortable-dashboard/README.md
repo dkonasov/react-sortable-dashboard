@@ -45,6 +45,8 @@ function App() {
 | :-------- | :------- | :------------------------- |
 | `rows` | `number` | **Required**. Total number of rows available for widgets on this dashboard |
 | `columns` | `number` | **Required**. Total number of columns available for widgets on this dashboard |
+| `verticalSpacing` | `number` | Space in pixels, that will be added between columns |
+| `horizontalSpacing` | `number` | Space in pixels, that will be added between rows |
 | `onWidgetsReorder` | `(source: number, target: number) => void` | handler for event that fires when order of widgets was changed via drag and drop |
 
 #### DashboardWidget
