@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/dkonasov/react-sortable-dashboard/compare/react-sortable-dashboard@1.0.7...react-sortable-dashboard@1.1.0) (2023-01-15)
+
+
+### Features
+
+* added spacings ([b61a28a](https://github.com/dkonasov/react-sortable-dashboard/commit/b61a28a2ab8e094e0a0ea10825f819cc4f21e0fa))
+
+
+
+
+
 ## [1.0.7](https://github.com/dkonasov/react-sortable-dashboard/compare/react-sortable-dashboard@1.0.6...react-sortable-dashboard@1.0.7) (2022-10-08)
 
 **Note:** Version bump only for package react-sortable-dashboard
